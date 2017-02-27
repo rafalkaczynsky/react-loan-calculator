@@ -1,0 +1,156 @@
+.mainContainer{
+    margin-top: 50px;
+    background-color: #f3f3f3;
+    color: #505050;
+    padding: 35px;
+}
+
+/* ======== LEFT SIDE ==============*/
+.leftSide{
+    background-color: #fff;
+    padding: 20px 20px 30px 20px;
+    border: 1px solid #e6e3e3;
+    text-align: center;
+}
+.labelSlider{
+    text-align: center;
+    background-color: #4268f4;
+    padding: 6px 12px;
+    border-radius: 5px;
+    color: #f3f3f3;
+    min-width: 120px;
+    font-size: 20px;
+    margin-bottom: 30px;
+    transition: all 1s;
+    margin-left: auto;
+    margin-right: auto;
+}
+.descSlider{
+    padding: 10px 12px;
+    color: #707070;
+}
+
+.leftSide input[type=range]{
+    width:100%;
+}
+#amountValueDisplay, #loanDurationDisplay{
+    font-size: 26px;
+    color: #4caf50;
+}
+
+/* =========== RIGHT SIDE ==============*/
+.rightSide{
+    text-align: center;
+}
+
+.rightSide h4{
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.rightSide span {
+    font-weight: bold;
+    padding: 10px 60px;
+    font-size: 60px;
+}
+
+.logo{
+    font-size: 35px;
+    color: #fff;
+    background-color: #ffffff;
+    text-shadow: #969696 1px 3px 0, #aba8a8 1px 13px 5px;
+}
+/* =========== INPUT CSS =================*/
+input[type=range] {
+    -webkit-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    animate: 0.2s;
+    border: 1px solid #bdc3c7;
+    background: #e1e1e1;
+    border-radius: 1.3px;
+
+}
+input[type=range]::-webkit-slider-thumb {
+
+    height: 30px;
+    width: 66px;
+    border-radius: 15px;
+    background: #4caf50;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -15px;
+    transition: all 0.1s;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #367ebd;
+}
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    animate: 0.2s;
+    border: 1px solid #bdc3c7;
+    background: #e1e1e1;
+    border-radius: 1.3px;
+}
+input[type=range]::-moz-range-thumb {
+    height: 30px;
+    width: 66px;
+    border-radius: 15px;
+    background: #4caf50;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -15px;
+    transition: all 0.1s
+}
+input[type=range]::-ms-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    animate: 0.2s;
+    border: 1px solid #bdc3c7;
+    background: #e1e1e1;
+    border-radius: 1.3px;
+}
+input[type=range]::-ms-fill-lower {
+    background: #2a6495;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-fill-upper {
+    background: #3071a9;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-thumb {
+    height: 30px;
+    width: 66px;
+    border-radius: 15px;
+    background: #4caf50;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -15px;
+    transition: all 0.1s;
+
+}
+input[type=range]:focus::-ms-fill-lower {
+    background: #3071a9;
+}
+input[type=range]:focus::-ms-fill-upper {
+    background: #367ebd;
+}
+
+
+@media (max-width: 500px){.rightSide span{font-size: 40px;}}
