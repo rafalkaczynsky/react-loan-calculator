@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import '../css/App.css';
-import { Grid, Row, Col, Form, FormGroup, ButtonGroup, Button} from 'react-bootstrap';
+import { Grid, Row, Col, Form} from 'react-bootstrap';
+import SliderAmount from './SliderAmount';
+import SliderDuration from './SliderDuration';
+import RightSide from './RightSide';
 
 class LoanCalculator extends Component {
 
@@ -49,8 +52,8 @@ class LoanCalculator extends Component {
             minDuration: this.props.minD,
 
             APR: this.props.APR1,
-            amountToRepay:  Math.round(totalAmountToRepay).toFixed(2),
-            monthlyInst: Math.round(monthly).toFixed(2),
+            amountToRepay:  Math.round(totalAmountToRepay).toFixed(),
+            monthlyInst: Math.round(monthly).toFixed(),
 
         };
     }
@@ -174,8 +177,8 @@ class LoanCalculator extends Component {
         let monthly = totalAmountToRepay / duration;
 
         // fixing numbers
-        totalAmountToRepay =  Math.round(totalAmountToRepay).toFixed(2);
-        monthly = Math.round(monthly).toFixed(2);
+        totalAmountToRepay =  Math.round(totalAmountToRepay).toFixed();
+        monthly = Math.round(monthly).toFixed();
 
         //save results into state
         this.setState({amountToRepay: totalAmountToRepay});
@@ -198,91 +201,35 @@ class LoanCalculator extends Component {
                 <Row>
                     <Col className="leftSide" xs={12} md={6}>
                         <Form horizontal>
-                            <FormGroup>
-                                <Row>
-                                    <Col  sm={12}>
-                                        <Row>
-                                             <Col className="labelSlider" xs={12} sm={4}>
-                                                 Amount
-                                             </Col>
-                                            <Col className="descSlider" xs={12} sm={6}>
-                                                How much would you like to borrow??
-                                            </Col>
-                                        </Row>
-                                    </Col>
-
-                                    <Col sm={12}>
-
-                                        <input
-
-                                            id="sliderAmount"
-                                            type="range"
-                                            value={this.state.valueAmount}
-                                            min={this.state.minAmount}
-                                            max={this.state.maxAmount}
-                                            onChange={this.update.bind(this)}
-                                            step={this.state.stepAmount} />
-                                        <div id="amountValueDisplay">£{this.state.valueAmount}</div>
-
-                                    </Col>
-                                </Row>
-                            </FormGroup>
-                            <FormGroup>
-                                <Row>
-                                    <Col  sm={12}>
-                                        <Row>
-                                            <Col className="labelSlider" sm={4}>
-                                                Duration
-                                            </Col>
-                                            <Col className="descSlider" sm={6}>
-                                                For how long would you like to borrow?
-                                            </Col>
-                                        </Row>
-                                    </Col>
-
-                                    <Col sm={12}>
-                                        <input
-
-                                            id="sliderDuration"
-                                            type="range"
-                                            value={this.state.valueDuration}
-                                            min={this.state.minDuration}
-                                            max={this.state.maxDuration}
-                                            onChange={this.update.bind(this)}
-                                            step={this.state.stepDuration} />
-
-                                        <div id="amountValueDisplay">{this.state.valueDuration} months</div>
-                                    </Col>
-                                </Row>
-                            </FormGroup>
+                            <SliderAmount
+                                value={this.state.valueAmount}
+                                min={this.state.minAmount}
+                                max={this.state.maxAmount}
+                                onChange={this.update.bind(this)}
+                                step={this.state.stepAmount}
+                                currancy={this.props.currancy}
+                            />
+                            <SliderDuration
+                                value={this.state.valueDuration}
+                                min={this.state.minDuration}
+                                max={this.state.maxDuration}
+                                onChange={this.update.bind(this)}
+                                step={this.state.stepDuration}
+                            />
                         </Form>
                         <Col className="logo" sm={12}>
                             YourLogo
                         </Col>
-
                     </Col>
 
-                    <Col className="rightSide" xs={12} md={6}>
-                        <h4>Total amount to repay</h4>
-                        <span  className="totalAmountDisplay">{this.props.currancy}{this.state.amountToRepay}</span>
-
-                        <h4>Monthly instaltment</h4>
-                        <span className="monthlyInstDisplay">{this.props.currancy}{this.state.monthlyInst}</span>
-
-                        <h4>APR</h4>
-                        <span className="aprDisplay">{this.state.APR}%</span>
-
-                        <h4>Your Credit History</h4>
-
-                        <ButtonGroup justified>
-                            <Button   bsStyle="primary" id="Excellent" onClick={this.update.bind(this)} >Excellent</Button>
-                            <Button   bsStyle="primary" id="Good" onClick={this.update.bind(this)} >Good</Button>
-                            <Button   bsStyle="primary" id="Fair" onClick={this.update.bind(this)}>Fair</Button>
-                        </ButtonGroup>
-
-                    </Col>
-                </Row>
-
+                    <RightSide
+                        currancy={this.props.currancy}
+                        amount={this.state.amountToRepay}
+                        monthly={this.state.monthlyInst}
+                        APR={this.state.APR}
+                        btnOnClick={this.update.bind(this)}
+                    />
+               </Row>
             </Grid>
         );
     }
