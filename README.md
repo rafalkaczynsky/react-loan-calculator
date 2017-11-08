@@ -2,7 +2,7 @@
 # react-loan-calculator
 Loan calculator component  build with React
 
-![alt text](https://github.com/rafalkaczynsky/react-native-wallet-screen/blob/master/src/styles/resources/images/screenshot.png)
+![alt text](https://raw.githubusercontent.com/rafalkaczynsky/react-loan-calculator/master/simple-loan-image.png)
 
 (It's just an example what you can achieve with react-native)
 
@@ -15,7 +15,7 @@ How to run it locally from command line
 - run npm install
 - npm start  
 
-
+Link to live example: http://www.rafalkaczynsky.com/projects/loan-calculator-react-component/index.html
 Use as follows:
 
  <LoanCalculator /> 
